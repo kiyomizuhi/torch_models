@@ -1,0 +1,19 @@
+version: "3"
+services:
+  dev_torch:
+    container_name: dev_torch
+    image: dev_torch:1.0
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        workdir: /home/work
+        ssh_docker: ${ssh_docker}
+    restart: always
+    tty: true
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/work
+      - ${ssh}:${ssh_docker}
