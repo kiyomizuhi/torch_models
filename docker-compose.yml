@@ -16,4 +16,3 @@ services:
       - "8888:8888"
     volumes:
       - .:/home/work
-      - ${ssh}:${ssh_docker}
